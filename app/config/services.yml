@@ -1,0 +1,34 @@
+parameters:
+    app_bundle.packageName: Twilio
+    app_bundle.metadata:
+        package: "%app_bundle.packageName%"
+        tagline: Twilio
+        description: test
+        image: test
+        repo: test
+        blocks:
+          name: test
+          args:
+            - [test, test, test]
+            - [test, test, test]
+            - [test, test, test]
+            - [test, test, test]
+            - [test, test, test]
+    app_bundle.errors:
+        required_parameters_missing: Required parameter missing or invalid
+        bad_credentials: Bad credentials
+
+services:
+    app_bundle.package_abstract:
+        class: TwilioBundle\Utils\TwilioAbstaract
+        abstract: true
+        arguments: ["@request_stack", "%app_bundle.errors%"]
+    app_bundle.call:
+        class: TwilioBundle\Utils\Call
+        parent: app_bundle.package_abstract
+    app_bundle.sms:
+        class: TwilioBundle\Utils\Sms
+        parent: app_bundle.package_abstract
+    app_bundle.mms:
+        class: TwilioBundle\Utils\Mms
+        parent: app_bundle.package_abstract

@@ -1,0 +1,12 @@
+{
+    "require": {
+        "symfony/symfony": "^3.1",
+        "sensio/framework-extra-bundle": "^3.0",
+        "twilio/sdk": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
