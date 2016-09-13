@@ -2,21 +2,84 @@ parameters:
     app_bundle.packageName: Twilio
     app_bundle.metadata:
         package: "%app_bundle.packageName%"
-        tagline: Twilio
-        description: test
-        image: test
-        repo: test
+        tagline: Twilio API Wrapper
+        description: This block allows you to make voice calls, send sms or mms.
+        image: https://www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico
+        repo: https://github.com/RapidSoftwareSolutions/Marketplace-Twilio-Package
         blocks:
-          name: test
+        -
+          name: Call
           args:
-            - [test, test, test]
-            - [test, test, test]
-            - [test, test, test]
-            - [test, test, test]
-            - [test, test, test]
+            -
+              name: SID
+              type: String
+              info: SID obtained from Twilio
+            -
+              name: Token
+              type: String
+              info: Token obtained from Twilio
+            -
+              name: From
+              type: String
+              info: Phone number from where calls start
+            -
+              name: To
+              type: String
+              info: Phone number to where calls route
+            -
+              name: url
+              type: String
+              info: URL Twilio will request when the call is answered
+        -
+          name: Sms
+          args:
+            -
+              name: SID
+              type: String
+              info: SID obtained from Twilio
+            -
+              name: Token
+              type: String
+              info: Token obtained from Twilio
+            -
+              name: From
+              type: String
+              info: Phone number from where calls start
+            -
+              name: To
+              type: String
+              info: Phone number to where calls route
+            -
+              name: text
+              type: String
+              info: Text message
+        -
+          name: Mms
+          args:
+            -
+              name: SID
+              type: String
+              info: SID obtained from Twilio
+            -
+              name: Token
+              type: String
+              info: Token obtained from Twilio
+            -
+              name: From
+              type: String
+              info: Phone number from where calls start
+            -
+              name: To
+              type: String
+              info: Phone number to where calls route
+            -
+              name: mediaUrl
+              type: String
+              info: URL with media content
     app_bundle.errors:
-        required_parameters_missing: Required parameter missing or invalid
-        bad_credentials: Bad credentials
+        required_parameters_missing: required parameter missing or invalid
+        bad_credentials: bad credentials
+        unsupported_http_method: sorry, but only POST available
 
 services:
     app_bundle.package_abstract:

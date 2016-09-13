@@ -21,7 +21,7 @@ abstract class TwilioAbstract
     /**
      * @var mixed
      */
-    public $errors;
+    protected $errors;
 
     /**
      * TwilioAbstract constructor.
@@ -65,6 +65,5 @@ abstract class TwilioAbstract
     {
         return $this->errors[$name];
     }
-
 
 }
