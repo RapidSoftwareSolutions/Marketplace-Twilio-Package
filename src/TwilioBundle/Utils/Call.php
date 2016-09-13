@@ -12,16 +12,13 @@ class Call extends TwilioAbstract
      */
     public function MakeCall()
     {
-        if (isset($this->parameters['to']) && isset($this->parameters['from']) && isset($this->parameters['url'])) {
-            $call = $this->client->calls->create(
-                $this->parameters['to'], $this->parameters['from'],
-                array("url" => $this->parameters['url'])
-            );
+        $call = $this->client->calls->create(
+            $this->parameters['to'], $this->parameters['from'],
+            array("url" => $this->parameters['url'])
+        );
 
-            $this->setResponse(['status' => 'success', 'sid' => $call->sid]);
-        } else {
-            $this->setResponse(['status' => 'error', 'errno' => $this->getErrors('required_parameters_missing')]);
-        }
+        $response = ['status' => 'success', 'sid' => $call->sid];
+        $this->setResponse($response);
     }
 
 }

@@ -6,6 +6,8 @@
 namespace TwilioBundle\Utils;
 
 use Symfony\Component\HttpFoundation\RequestStack;
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\RestException;
 use Twilio\Rest\Client;
 
 abstract class TwilioAbstract
@@ -22,6 +24,10 @@ abstract class TwilioAbstract
      * @var mixed
      */
     protected $errors;
+    /**
+     * @var mixed
+     */
+    protected $client;
 
     /**
      * TwilioAbstract constructor.
@@ -42,10 +48,10 @@ abstract class TwilioAbstract
      */
     public function setResponse($responseMessage)
     {
-        if ($responseMessage['status'] = 'error') {
+        if ($responseMessage['status'] == 'error') {
             $this->response = ['callback' => 'error', 'contextWrites' => ['to' => $responseMessage['errno']]];
         } else {
-            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => "Successfully established connection under sid number:" . $responseMessage['sid']]];
+            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => "Successfully established connection under sid number: " . $responseMessage['sid']]];
         }
     }
 

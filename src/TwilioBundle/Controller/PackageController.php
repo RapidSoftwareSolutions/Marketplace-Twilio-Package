@@ -3,9 +3,11 @@
 namespace TwilioBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\RestException;
 
 /**
  * @author Dmitry Shumytskyi <d.shumytskyi@gmail.com>
@@ -32,10 +34,18 @@ class PackageController extends Controller
      */
     public function makeCallAction()
     {
-        $twilio = $this->get('app_bundle.call');
-        $twilio->makeCall();
+        try {
+            $twilio = $this->get('app_bundle.call');
+            try {
+                $twilio->makeCall();
+            } catch (RestException $e) {
+                $twilio->setResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            }
 
-        return new JsonResponse($twilio->getResponse());
+            return new JsonResponse($twilio->getResponse());
+        } catch (ConfigurationException $e) {
+            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -47,10 +57,18 @@ class PackageController extends Controller
      */
     public function sendSmsAction()
     {
-        $twilio = $this->get('app_bundle.sms');
-        $twilio->sendSms();
+        try {
+            $twilio = $this->get('app_bundle.sms');
+            try {
+                $twilio->sendSms();
+            } catch (RestException $e) {
+                $twilio->setResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            }
 
-        return new JsonResponse($twilio->getResponse());
+            return new JsonResponse($twilio->getResponse());
+        } catch (ConfigurationException $e) {
+            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -62,10 +80,18 @@ class PackageController extends Controller
      */
     public function sendMmsAction()
     {
-        $twilio = $this->get('app_bundle.mms');
-        $twilio->sendMms();
+        try {
+            $twilio = $this->get('app_bundle.mms');
+            try {
+                $twilio->sendMms();
+            } catch (RestException $e) {
+                $twilio->setResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            }
 
-        return new JsonResponse($twilio->getResponse());
+            return new JsonResponse($twilio->getResponse());
+        } catch (ConfigurationException $e) {
+            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+        }
     }
 
 }
