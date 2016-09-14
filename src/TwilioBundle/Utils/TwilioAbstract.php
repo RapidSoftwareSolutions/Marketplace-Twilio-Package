@@ -5,9 +5,6 @@
 
 namespace TwilioBundle\Utils;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Twilio\Exceptions\ConfigurationException;
-use Twilio\Exceptions\RestException;
 use Twilio\Rest\Client;
 
 abstract class TwilioAbstract
@@ -17,13 +14,13 @@ abstract class TwilioAbstract
      */
     protected $response;
     /**
-     * @var mixed
+     * @var String
      */
-    protected $parameters;
+    protected $accountSid;
     /**
      * @var mixed
      */
-    protected $errors;
+    protected $parameters;
     /**
      * @var mixed
      */
@@ -32,15 +29,13 @@ abstract class TwilioAbstract
     /**
      * TwilioAbstract constructor.
      *
-     * @param RequestStack $request
-     * @param $errors
+     * @param $request
      */
-    public function __construct(RequestStack $request, $errors)
+    public function __construct($request)
     {
         $this->request = $request->getCurrentRequest();
         $this->parameters = $this->request->request->all();
-        $this->errors = $errors;
-        $this->client = new Client($this->parameters['sid'], $this->parameters['token']);
+        $this->client = new Client($this->parameters['accountSid'], $this->parameters['accountToken']);
     }
 
     /**
@@ -51,7 +46,7 @@ abstract class TwilioAbstract
         if ($responseMessage['status'] == 'error') {
             $this->response = ['callback' => 'error', 'contextWrites' => ['to' => $responseMessage['errno']]];
         } else {
-            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => "Successfully established connection under sid number: " . $responseMessage['sid']]];
+            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => $responseMessage['callbackParameters']]];
         }
     }
 
@@ -61,15 +56,6 @@ abstract class TwilioAbstract
     public function getResponse()
     {
         return $this->response;
-    }
-
-    /**
-     * @param $name
-     * @return mixed
-     */
-    public function getErrors($name)
-    {
-        return $this->errors[$name];
     }
 
 }

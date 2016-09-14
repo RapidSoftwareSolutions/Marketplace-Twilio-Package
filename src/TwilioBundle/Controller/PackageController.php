@@ -44,7 +44,7 @@ class PackageController extends Controller
 
             return new JsonResponse($twilio->getResponse());
         } catch (ConfigurationException $e) {
-            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            return new JsonResponse(['callback' => 'error', 'contextWrites' => ['to' => $e->getMessage()]]);
         }
     }
 
@@ -67,7 +67,7 @@ class PackageController extends Controller
 
             return new JsonResponse($twilio->getResponse());
         } catch (ConfigurationException $e) {
-            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            return new JsonResponse(['callback' => 'error', 'contextWrites' => ['to' => $e->getMessage()]]);
         }
     }
 
@@ -90,7 +90,7 @@ class PackageController extends Controller
 
             return new JsonResponse($twilio->getResponse());
         } catch (ConfigurationException $e) {
-            return new JsonResponse(['status' => 'error', 'errno' => $e->getMessage()]);
+            return new JsonResponse(['callback' => 'error', 'contextWrites' => ['to' => $e->getMessage()]]);
         }
     }
 

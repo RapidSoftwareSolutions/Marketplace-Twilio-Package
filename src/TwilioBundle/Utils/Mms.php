@@ -8,19 +8,38 @@ namespace TwilioBundle\Utils;
 class Mms extends TwilioAbstract
 {
     /**
-     * Send mms message
+     * Send mms message and return associated parameters
+     *
      */
     public function SendMms()
     {
         $mms = $this->client->messages->create(
             $this->parameters['to'],
-            array(
-                'from' => $this->parameters['from'],
-                'mediaUrl' => $this->parameters['mediaUrl'],
-            )
+            $this->parameters
         );
 
-        $this->setResponse(['status' => 'success', 'sid' => $mms->sid]);
+        $this->setResponse(['status' => 'success', 'callbackParameters' => [
+            $mms->sid,
+            $mms->body,
+            $mms->dateCreated,
+            $mms->dateUpdated,
+            $mms->accountSid,
+            $mms->to,
+            $mms->from,
+            $mms->status,
+            $mms->price,
+            $mms->direction,
+            $mms->apiVersion,
+            $mms->uri,
+            $mms->subresourceUris,
+            $mms->priceUnit,
+            $mms->dateSent,
+            $mms->errorCode,
+            $mms->errorMessage,
+            $mms->numMedia,
+            $mms->numSegments
+        ]
+        ]);
     }
 
 }
