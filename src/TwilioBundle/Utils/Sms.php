@@ -17,7 +17,7 @@ class Sms extends TwilioAbstract
             $this->parameters
         );
 
-        $this->setResponse(['status' => 'success', 'callbackParameters' => [
+        $this->setResponse(['status' => 'success', ['callbackParameters' => [
             $sms->sid,
             $sms->body,
             $sms->dateCreated,
@@ -38,7 +38,7 @@ class Sms extends TwilioAbstract
             $sms->numMedia,
             $sms->numSegments
         ]
-        ]);
+        ]]);
     }
 
 }

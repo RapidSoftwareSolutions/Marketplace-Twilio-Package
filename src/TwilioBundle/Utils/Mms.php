@@ -9,7 +9,6 @@ class Mms extends TwilioAbstract
 {
     /**
      * Send mms message and return associated parameters
-     *
      */
     public function SendMms()
     {
@@ -18,7 +17,7 @@ class Mms extends TwilioAbstract
             $this->parameters
         );
 
-        $this->setResponse(['status' => 'success', 'callbackParameters' => [
+        $this->setResponse(['status' => 'success', ['callbackParameters' => [
             $mms->sid,
             $mms->body,
             $mms->dateCreated,
@@ -39,7 +38,7 @@ class Mms extends TwilioAbstract
             $mms->numMedia,
             $mms->numSegments
         ]
-        ]);
+        ]]);
     }
 
 }

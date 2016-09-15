@@ -9,8 +9,6 @@ class Call extends TwilioAbstract
 {
     /**
      * Establish Voice Call and return associated parameters
-     *
-     * todo check existence of vars
      */
     public function MakeCall()
     {
@@ -19,7 +17,7 @@ class Call extends TwilioAbstract
             $this->parameters
         );
 
-        $this->setResponse(['status' => 'success', 'callbackParameters' => [
+        $this->setResponse(['status' => 'success', ['callbackParameters' => [
                 $call->sid,
                 $call->dateCreated,
                 $call->dateUpdated,
@@ -46,17 +44,8 @@ class Call extends TwilioAbstract
                 $call->priceUnit,
                 $call->subresourceUris
             ]
-            ]
+            ]]
         );
-    }
-
-    public function checkExistence($var)
-    {
-        if (isset($var)){
-            return $var;
-        }else{
-            return 0;
-        }
     }
 
 }

@@ -6,22 +6,17 @@ parameters:
         description: This block allows you to make voice calls, send sms or mms.
         image: https://www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico
         repo: https://github.com/RapidSoftwareSolutions/Marketplace-Twilio-Package
-        accounts:
-          domain: twilio.com
-          credentials:
-            - accountSid
-            - acountToken
         blocks:
         -
           name: makeCall
           args:
             -
               name: accountSid
-              type: credentials
+              type: String
               info: "A 34 character string that uniquely identifies this account."
             -
-              name: acountToken
-              type: credentials
+              name: accountToken
+              type: String
               info: "The authorization token for this account."
             -
               name: from
@@ -69,11 +64,11 @@ parameters:
               info: "Optional: A string of keys to dial after connecting to the number, maximum of 32 digits."
             -
               name: timeout
-              type: integer
+              type: String
               info: "Optional: The integer number of seconds that Twilio should allow the phone to ring before assuming there is no answer."
             -
               name: record
-              type: bool
+              type: String
               info: "Optional: Set this parameter to 'true' to record the entirety of a phone call."
             -
               name: recordingChannels
@@ -92,11 +87,11 @@ parameters:
           args:
             -
               name: accountSid
-              type: credentials
+              type: String
               info: "A 34 character string that uniquely identifies this account."
             -
               name: accountToken
-              type: credentials
+              type: String
               info: "The authorization token for this account."
             -
               name: from
@@ -128,18 +123,18 @@ parameters:
               info: "Optional: The total maximum price in US dollars acceptable for the message to be delivered."
             -
               name: provideFeedback
-              type: bool
+              type: String
               info: "Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default."
         -
           name: sendMms
           args:
             -
               name: accountSid
-              type: credentials
+              type: String
               info: "A 34 character string that uniquely identifies this account."
             -
               name: accountToken
-              type: credentials
+              type: String
               info: "The authorization token for this account."
             -
               name: from
@@ -171,7 +166,7 @@ parameters:
               info: "Optional: The total maximum price in US dollars acceptable for the message to be delivered."
             -
               name: provideFeedback
-              type: bool
+              type: String
               info: "Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default."
 
 services:

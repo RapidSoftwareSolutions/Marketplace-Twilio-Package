@@ -18,6 +18,10 @@ abstract class TwilioAbstract
      */
     protected $accountSid;
     /**
+     * @var String
+     */
+    protected $accountToken;
+    /**
      * @var mixed
      */
     protected $parameters;
@@ -34,8 +38,12 @@ abstract class TwilioAbstract
     public function __construct($request)
     {
         $this->request = $request->getCurrentRequest();
-        $this->parameters = $this->request->request->all();
-        $this->client = new Client($this->parameters['accountSid'], $this->parameters['accountToken']);
+        $this->body = json_decode($this->request->getContent(), true);
+        $this->accountSid = $this->body['args']['accountSid'];
+        $this->accountToken = $this->body['args']['accountToken'];
+        $this->unsetCredentials();
+        $this->clearEmpty();
+        $this->client = new Client($this->accountSid, $this->accountToken);
     }
 
     /**
@@ -46,7 +54,7 @@ abstract class TwilioAbstract
         if ($responseMessage['status'] == 'error') {
             $this->response = ['callback' => 'error', 'contextWrites' => ['to' => $responseMessage['errno']]];
         } else {
-            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => $responseMessage['callbackParameters']]];
+            $this->response = ['callback' => 'success', 'contextWrites' => ['to' => $responseMessage[0]['callbackParameters']]];
         }
     }
 
@@ -56,6 +64,18 @@ abstract class TwilioAbstract
     public function getResponse()
     {
         return $this->response;
+    }
+
+    public function unsetCredentials()
+    {
+        unset($this->body['args']['accountSid']);
+        unset($this->body['args']['accountToken']);
+    }
+
+    public function clearEmpty()
+    {
+        $this->parameters = array_filter($this->body['args'], function($value) { return $value !== ''; });
+
     }
 
 }
