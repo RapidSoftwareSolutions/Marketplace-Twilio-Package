@@ -8,13 +8,25 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class PackageControllerTest extends WebTestCase
 {
     /**
-     * @var String
+     * @var string
      */
     public $testAccountSid = 'AC5f37acb24007a320eefb5ffaeb498a78';
     /**
-     * @var String
+     * @var string
      */
     public $testAccountToken = 'f1dbbb0bbc1b6aa06a5fdcf6d7072d25';
+    /**
+     * @var string
+     */
+    public $testContentMakeCall = '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006\'","to":"+380930000895","url":"http://demo.twilio.com/docs/voice.xml"}}';
+    /**
+     * @var string
+     */
+    public $testContentSendSms = '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006","to":"+380930000895","body":"http://demo.twilio.com/docs/voice.xml"}}';
+    /**
+     * @var string
+     */
+    public $testContentSendMms = '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006","to":"+380930000895","mediaUrl":"http://demo.twilio.com/docs/voice.xml"}}';
 
     public function testMakeCall()
     {
@@ -25,13 +37,13 @@ class PackageControllerTest extends WebTestCase
             [],
             [],
             [],
-            '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006\'","to":"+380930000895","url":"http://demo.twilio.com/docs/voice.xml"}}'
+            $this->testContentMakeCall
         );
 
         $response = $client->getResponse();
+        $data = json_decode($response->getContent(), true);
 
         $this->assertJson($response->getContent());
-        $data = json_decode($response->getContent(), true);
         $this->assertEquals('success', $data['callback']);
     }
 
@@ -44,13 +56,13 @@ class PackageControllerTest extends WebTestCase
             [],
             [],
             [],
-            '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006","to":"+380930000895","body":"http://demo.twilio.com/docs/voice.xml"}}'
+            $this->testContentSendSms
         );
 
         $response = $client->getResponse();
+        $data = json_decode($response->getContent(), true);
 
         $this->assertJson($response->getContent());
-        $data = json_decode($response->getContent(), true);
         $this->assertEquals('success', $data['callback']);
     }
 
@@ -63,13 +75,13 @@ class PackageControllerTest extends WebTestCase
             [],
             [],
             [],
-            '{"args":{"accountSid":"AC5f37acb24007a320eefb5ffaeb498a78","accountToken":"f1dbbb0bbc1b6aa06a5fdcf6d7072d25","from":"+15005550006","to":"+380930000895","mediaUrl":"http://demo.twilio.com/docs/voice.xml"}}'
+            $this->testContentSendMms
         );
 
         $response = $client->getResponse();
+        $data = json_decode($response->getContent(), true);
 
         $this->assertJson($response->getContent());
-        $data = json_decode($response->getContent(), true);
         $this->assertEquals('success', $data['callback']);
 
     }
@@ -79,8 +91,9 @@ class PackageControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/api/twilio');
         $response = $client->getResponse();
-
         $data = json_decode($response->getContent(), true);
+
+        $this->assertJson($response->getContent());
         $this->assertArrayHasKey('package', $data);
         $this->assertArrayHasKey('tagline', $data);
         $this->assertArrayHasKey('description', $data);

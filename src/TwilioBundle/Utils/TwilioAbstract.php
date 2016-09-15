@@ -14,11 +14,11 @@ abstract class TwilioAbstract
      */
     protected $response;
     /**
-     * @var String
+     * @var string
      */
     protected $accountSid;
     /**
-     * @var String
+     * @var string
      */
     protected $accountToken;
     /**
@@ -74,8 +74,9 @@ abstract class TwilioAbstract
 
     public function clearEmpty()
     {
-        $this->parameters = array_filter($this->body['args'], function($value) { return $value !== ''; });
-
+        $this->parameters = array_filter($this->body['args'], function ($value) {
+            return $value !== '';
+        });
     }
 
 }
