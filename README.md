@@ -32,7 +32,56 @@ Make phone calls
 ```
 #### Response example
 ```json
-{"callback":"success","contextWrites":{"to":["CA0caca6962c6e7f028d5c3ca3a564b33a",{"date":"2016-09-15 19:16:09.000000","timezone_type":1,"timezone":"+00:00"},{"date":"2016-09-15 19:16:09.000000","timezone_type":1,"timezone":"+00:00"},null,"AC5f37acb24007a320eefb5ffaeb498a78","+380930000895","+380930000895","+15005550006",null,null,"queued",{"date":"2016-09-15 19:16:10.000000","timezone_type":3,"timezone":"UTC"},{"date":"2016-09-15 19:16:10.000000","timezone_type":3,"timezone":"UTC"},null,null,null,null,"2010-04-01",null,null,"\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA0caca6962c6e7f028d5c3ca3a564b33a.json",null,null,"USD",{"notifications":"\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA0caca6962c6e7f028d5c3ca3a564b33a\/Notifications.json","recordings":"\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA0caca6962c6e7f028d5c3ca3a564b33a\/Recordings.json"}]}}
+{
+	"callback": "success",
+	"contextWrites": {
+		"to": {
+			"sid": "CA661c423d7e74fe440e5a3e4a369d6c09",
+			"dateCreated": {
+				"date": "2016-09-15 20:47:40.000000",
+				"timezone_type": 1,
+				"timezone": "+00:00"
+			},
+			"dateUpdated": {
+				"date": "2016-09-15 20:47:40.000000",
+				"timezone_type": 1,
+				"timezone": "+00:00"
+			},
+			"parentCallSid": null,
+			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
+			"to": "+15005880006",
+			"toFormatted": "+15005880006",
+			"from": "+15005550006",
+			"forwardedFrom": null,
+			"phoneNumberSid": null,
+			"status": "queued",
+			"startTime": {
+				"date": "2016-09-15 20:47:40.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"endTime": {
+				"date": "2016-09-15 20:47:40.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"duration": null,
+			"price": null,
+			"direction": null,
+			"answeredBy": null,
+			"apiVersion": "2010-04-01",
+			"callerName": null,
+			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09.json",
+			"annotation": null,
+			"groupSid": null,
+			"priceUnit": "USD",
+			"subresourceUris": {
+				"notifications": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09\/Notifications.json",
+				"recordings": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09\/Recordings.json"
+			}
+		}
+	}
+}
 ```
 
 ## /api/twilio/sendSms
@@ -59,7 +108,46 @@ Send text message
 ```
 #### Response example
 ```json
-{"callback":"success","contextWrites":{"to":["SM525c50d800d0415c90220ee1dd023c0a","Sent from your Twilio trial account - http:\/\/demo.twilio.com\/docs\/voice.xml",{"date":"2016-09-15 19:21:02.000000","timezone_type":1,"timezone":"+00:00"},{"date":"2016-09-15 19:21:02.000000","timezone_type":1,"timezone":"+00:00"},"AC5f37acb24007a320eefb5ffaeb498a78","+380930000895","+15005550006","queued",null,"outbound-api","2010-04-01","\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM525c50d800d0415c90220ee1dd023c0a.json",{"media":"\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM525c50d800d0415c90220ee1dd023c0a\/Media.json"},"USD",{"date":"2016-09-15 19:21:03.000000","timezone_type":3,"timezone":"UTC"},null,null,"0","1"]}}
+{
+	"callback": "success",
+	"contextWrites": {
+		"to": {
+			"sid": "SM9d72da46545d448cb448d7e2ab009136",
+			"body": "Sent from your Twilio trial account - http:\/\/demo.twilio.com\/docs\/voice.xml",
+			"dateCreated": {
+				"date": "2016-09-15 20:46:23.000000",
+				"timezone_type": 1,
+				"timezone": "+00:00"
+			},
+			"dateUpdated": {
+				"date": "2016-09-15 20:46:23.000000",
+				"timezone_type": 1,
+				"timezone": "+00:00"
+			},
+			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
+			"to": "+15008850006",
+			"from": "+15005550006",
+			"status": "queued",
+			"price": null,
+			"direction": "outbound-api",
+			"apiVersion": "2010-04-01",
+			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM9d72da46545d448cb448d7e2ab009136.json",
+			"subresourceUris": {
+				"media": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM9d72da46545d448cb448d7e2ab009136\/Media.json"
+			},
+			"priceUnit": "USD",
+			"dateSent": {
+				"date": "2016-09-15 20:46:23.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"errorCode": null,
+			"errorMessage": null,
+			"numMedia": "0",
+			"numSegments": "1"
+		}
+	}
+}
 ```
 
 ## /api/twilio/sendMms
@@ -86,7 +174,45 @@ Send media message
 ```
 #### Response example
 ```json
-{"callback":"success","contextWrites":{"to":["MMc66c73ff6ca8471bb68906146a764f29","",{"date":"2016-09-15 19:23:04.000000","timezone_type":3,"timezone":"UTC"},{"date":"2016-09-15 19:23:04.000000","timezone_type":3,"timezone":"UTC"},"AC5f37acb24007a320eefb5ffaeb498a78","+380930000895","+15005550006","queued",null,"outbound-api","2010-04-01","\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MMc66c73ff6ca8471bb68906146a764f29.json",{"media":"\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MMc66c73ff6ca8471bb68906146a764f29\/Media.json"},"USD",{"date":"2016-09-15 19:23:04.000000","timezone_type":3,"timezone":"UTC"},null,null,"0","1"]}}
+{
+	"callback": "success",
+	"contextWrites": {
+		"to": {
+			"sid": "MM2e5f462d1a034a72809294fac6493cf1",
+			"dateCreated": {
+				"date": "2016-09-15 20:43:00.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"dateUpdated": {
+				"date": "2016-09-15 20:43:00.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
+			"to": "+15005650006",
+			"from": "+15005550006",
+			"status": "queued",
+			"price": null,
+			"direction": "outbound-api",
+			"apiVersion": "2010-04-01",
+			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MM2e5f462d1a034a72809294fac6493cf1.json",
+			"subresourceUris": {
+				"media": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MM2e5f462d1a034a72809294fac6493cf1\/Media.json"
+			},
+			"priceUnit": "USD",
+			"dateSent": {
+				"date": "2016-09-15 20:43:00.000000",
+				"timezone_type": 3,
+				"timezone": "UTC"
+			},
+			"errorCode": null,
+			"errorMessage": null,
+			"numMedia": "0",
+			"numSegments": "1"
+		}
+	}
+}
 ```
 ## Errors
 | Error            | Description     |
