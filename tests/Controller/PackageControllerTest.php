@@ -1,4 +1,5 @@
 <?php
+
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

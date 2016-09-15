@@ -18,25 +18,24 @@ class Mms extends TwilioAbstract
         );
 
         $this->setResponse(['status' => 'success', ['callbackParameters' => [
-            $mms->sid,
-            $mms->body,
-            $mms->dateCreated,
-            $mms->dateUpdated,
-            $mms->accountSid,
-            $mms->to,
-            $mms->from,
-            $mms->status,
-            $mms->price,
-            $mms->direction,
-            $mms->apiVersion,
-            $mms->uri,
-            $mms->subresourceUris,
-            $mms->priceUnit,
-            $mms->dateSent,
-            $mms->errorCode,
-            $mms->errorMessage,
-            $mms->numMedia,
-            $mms->numSegments
+            'sid' => $mms->sid,
+            'dateCreated' => $mms->dateCreated,
+            'dateUpdated' => $mms->dateUpdated,
+            'accountSid' => $mms->accountSid,
+            'to' => $mms->to,
+            'from' => $mms->from,
+            'status' => $mms->status,
+            'price' => $mms->price,
+            'direction' => $mms->direction,
+            'apiVersion' => $mms->apiVersion,
+            'uri' => $mms->uri,
+            'subresourceUris' => $mms->subresourceUris,
+            'priceUnit' => $mms->priceUnit,
+            'dateSent' => $mms->dateSent,
+            'errorCode' => $mms->errorCode,
+            'errorMessage' => $mms->errorMessage,
+            'numMedia' => $mms->numMedia,
+            'numSegments' => $mms->numSegments
         ]
         ]]);
     }

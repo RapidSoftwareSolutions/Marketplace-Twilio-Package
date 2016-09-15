@@ -18,25 +18,25 @@ class Sms extends TwilioAbstract
         );
 
         $this->setResponse(['status' => 'success', ['callbackParameters' => [
-            $sms->sid,
-            $sms->body,
-            $sms->dateCreated,
-            $sms->dateUpdated,
-            $sms->accountSid,
-            $sms->to,
-            $sms->from,
-            $sms->status,
-            $sms->price,
-            $sms->direction,
-            $sms->apiVersion,
-            $sms->uri,
-            $sms->subresourceUris,
-            $sms->priceUnit,
-            $sms->dateSent,
-            $sms->errorCode,
-            $sms->errorMessage,
-            $sms->numMedia,
-            $sms->numSegments
+            'sid' => $sms->sid,
+            'body' => $sms->body,
+            'dateCreated' => $sms->dateCreated,
+            'dateUpdated' => $sms->dateUpdated,
+            'accountSid' => $sms->accountSid,
+            'to' => $sms->to,
+            'from' => $sms->from,
+            'status' => $sms->status,
+            'price' => $sms->price,
+            'direction' => $sms->direction,
+            'apiVersion' => $sms->apiVersion,
+            'uri' => $sms->uri,
+            'subresourceUris' => $sms->subresourceUris,
+            'priceUnit' => $sms->priceUnit,
+            'dateSent' => $sms->dateSent,
+            'errorCode' => $sms->errorCode,
+            'errorMessage' => $sms->errorMessage,
+            'numMedia' => $sms->numMedia,
+            'numSegments' => $sms->numSegments
         ]
         ]]);
     }
