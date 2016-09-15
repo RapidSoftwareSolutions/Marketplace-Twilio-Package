@@ -96,7 +96,19 @@ Send media message
 | `[HTTP 401] Unable to create record: Authenticate`     | Provide correct accountToken. |
 | `[HTTP 400] Unable to create record: A "From" phone number is required.`     | One of  a mandatory field is incorrect. |
 | `[HTTP 400] Unable to create record: Method is not valid: TEST`     | One of an additional field is incorrect. |
-#### Example
+
+#### Request example with error
+```json
+{
+	"accountSid": "XXXX",
+	"accountToken": "XXXX",
+	"from": "+15005550006",
+	"to": "+15005260006",
+	"url": "http://demo.twilio.com/docs/voice.xml",
+	"method": "test"
+}
+```
+#### Response
 ```json
 {
 "callback":"error",
