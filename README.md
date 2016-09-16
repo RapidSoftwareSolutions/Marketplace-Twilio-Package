@@ -19,6 +19,18 @@ Make phone calls
 | `to` |string  | The phone number, SIP address or client identifier to call. |
 | `url` |string  | The fully qualified URL that should be consulted when the call connects. Just like when you set a URL on a phone number for handling inbound calls. See the Url Parameter section below for more details. |
 | `applicationSid` |string  | The 34 character sid of the application Twilio should use to handle this phone call. If this parameter is present, Twilio will ignore all of the voice URLs passed and use the URLs set on the application. |
+| `method`         |string  | Optional: The HTTP method Twilio should use when making its request to the above Url parameter's value. Defaults to POST. If an ApplicationSid parameter is present, this parameter is ignored. |
+| `fallbackUrl`         |string  | Optional: A URL that Twilio will request if an error occurs requesting or executing the TwiML at Url. If an ApplicationSid parameter is present, this parameter is ignored. |
+| `fallbackMethod` |string  | Optional: The HTTP method that Twilio should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST. If an ApplicationSid parameter is present, this parameter is ignored. |
+| `statusCallback` |boolean  | Optional: A URL that Twilio will send asynchronous webhook requests to on every call event specified in the StatusCallbackEvent parameter. If no event is present, Twilio will send completed by default. If an ApplicationSid parameter is present, this parameter is ignored. URLs must contain a valid hostname. |
+| `statusCallbackMethod`         |string  | Optional: The HTTP method Twilio should use when requesting the above URL. Defaults to POST. If an ApplicationSid parameter is present, this parameter is ignored. |
+| `statusCallbackEvent`         |string  | Optional: The call progress events that Twilio will send webhooks on. Available values are initiated, ringing, answered, and completed. |
+| `sendDigits`         |string  | Optional: A string of keys to dial after connecting to the number, maximum of 32 digits. |
+| `timeout` |number  | Optional: The integer number of seconds that Twilio should allow the phone to ring before assuming there is no answer. |
+| `record` |boolean  | Optional: Set this parameter to 'true' to record the entirety of a phone call. |
+| `recordingChannels`         |string  |  Optional: Mono or dual. Set this parameter to specify the number of channels in the final recording. Defaults to 'mono'. |
+| `recordingStatusCallback`         |string  | Optional: The recordingStatusCallback attribute takes an absolute URL as an argument. |
+| `recordingStatusCallbackMethod` |string  | Optional: The HTTP method Twilio should use when requesting the above URL. Defaults to POST |
 
 #### Request example
 ```json
@@ -27,7 +39,7 @@ Make phone calls
 		"accountToken": "XXXX",
 		"from": "+15005550006",
 		"to": "+150055444006",
-		"url": "http://demo.twilio.com/docs/voice.xml",
+		"url": "http://demo.twilio.com/docs/voice.xml"
 }
 ```
 #### Response example
@@ -95,6 +107,10 @@ Send text message
 | `messagingServiceSid` |string  | The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery. |
 | `to` |string  | The phone number, SIP address or client identifier to call. |
 | `body` |string  | The text of the message you want to send, limited to 1600 characters. |
+| `statusCallback`         |string  | Optional: A URL that Twilio will POST to each time your message status changes to one of the following: queued, failed, sent, delivered, or undelivered. |
+| `applicationSid`         |string  | Optional: Twilio will POST MessageSid as well as MessageStatus=sent or MessageStatus=failed to the URL in the MessageStatusCallback property of this Application. |
+| `maxPrice` |string  | Optional: The total maximum price in US dollars acceptable for the message to be delivered. |
+| `provideFeedback` |boolean  | Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default. |
 
 #### Request example
 ```json
@@ -103,7 +119,7 @@ Send text message
 		"accountToken": "XXXX",
 		"from": "+15005550006",
 		"to": "+150055444006",
-		"body": "text",
+		"body": "text"
 }
 ```
 #### Response example
@@ -161,6 +177,10 @@ Send media message
 | `messagingServiceSid` |string  | The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery. |
 | `to` |string  | The phone number, SIP address or client identifier to call. |
 | `mediaUrl` |string  | The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient's device. |
+| `statusCallback`         |string  | Optional: A URL that Twilio will POST to each time your message status changes to one of the following: queued, failed, sent, delivered, or undelivered. |
+| `applicationSid`         |string  | Optional: Twilio will POST MessageSid as well as MessageStatus=sent or MessageStatus=failed to the URL in the MessageStatusCallback property of this Application. |
+| `maxPrice` |string  | Optional: The total maximum price in US dollars acceptable for the message to be delivered. |
+| `provideFeedback` |boolean  | Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default. |
 
 #### Request example
 ```json
@@ -169,7 +189,7 @@ Send media message
 		"accountToken": "XXXX",
 		"from": "+15005550006",
 		"to": "+150055444006",
-		"mediaUrl": "http://demo.twilio.com/docs/voice.xml",
+		"mediaUrl": "http://demo.twilio.com/docs/voice.xml"
 }
 ```
 #### Response example
