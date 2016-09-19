@@ -87,6 +87,13 @@ parameters:
               name: recordingStatusCallbackMethod
               type: String
               info: "Optional: The HTTP method Twilio should use when requesting the above URL. Defaults to POST"
+          callbacks:
+            -
+              name: error
+              info: "Error"
+            -
+              name: success
+              info: "Success"
         -
           name: sendSms
           args:
@@ -130,6 +137,13 @@ parameters:
               name: provideFeedback
               type: String
               info: "Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default."
+          callbacks:
+            -
+              name: error
+              info: "Error"
+            -
+              name: success
+              info: "Success"
         -
           name: sendMms
           args:
@@ -173,7 +187,14 @@ parameters:
               name: provideFeedback
               type: String
               info: "Optional: Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is set to false by default."
-
+          callbacks:
+            -
+              name: error
+              info: "Error"
+            -
+              name: success
+              info: "Success"
+              
 services:
     app_bundle.package_abstract:
         class: TwilioBundle\Utils\TwilioAbstaract
