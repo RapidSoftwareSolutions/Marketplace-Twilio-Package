@@ -33,7 +33,7 @@ class PackageControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request(
             'POST',
-            '/api/twilio/makeCall',
+            '/api/Twilio/makeCall',
             [],
             [],
             [],
@@ -52,7 +52,7 @@ class PackageControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request(
             'POST',
-            '/api/twilio/sendSms',
+            '/api/Twilio/sendSms',
             [],
             [],
             [],
@@ -71,7 +71,7 @@ class PackageControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request(
             'POST',
-            '/api/twilio/sendMms',
+            '/api/Twilio/sendMms',
             [],
             [],
             [],
@@ -89,7 +89,7 @@ class PackageControllerTest extends WebTestCase
     public function testMetadata()
     {
         $client = static::createClient();
-        $client->request('GET', '/api/twilio');
+        $client->request('GET', '/api/Twilio');
         $response = $client->getResponse();
         $data = json_decode($response->getContent(), true);
 

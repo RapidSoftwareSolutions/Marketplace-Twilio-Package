@@ -16,7 +16,7 @@ class PackageController extends Controller
 {
     /**
      *
-     * @Route("/api/{packageName}", requirements={"packageName": "twilio"})
+     * @Route("/api/{packageName}", requirements={"packageName": "Twilio"})
      * @Method({"GET"})
      *
      * @return JsonResponse
@@ -27,7 +27,7 @@ class PackageController extends Controller
     }
 
     /**
-     * @Route("/api/{packageName}/makeCall", requirements={"packageName": "twilio"})
+     * @Route("/api/{packageName}/makeCall", requirements={"packageName": "Twilio"})
      * @Method({"POST"})
      *
      * @return mixed
@@ -50,7 +50,7 @@ class PackageController extends Controller
 
     /**
      *
-     * @Route("/api/{packageName}/sendSms", requirements={"packageName": "twilio"})
+     * @Route("/api/{packageName}/sendSms", requirements={"packageName": "Twilio"})
      * @Method({"POST"})
      *
      * @return JsonResponse
@@ -73,7 +73,7 @@ class PackageController extends Controller
 
     /**
      *
-     * @Route("/api/{packageName}/sendMms", requirements={"packageName": "twilio"})
+     * @Route("/api/{packageName}/sendMms", requirements={"packageName": "Twilio"})
      * @Method({"POST"})
      *
      * @return JsonResponse
