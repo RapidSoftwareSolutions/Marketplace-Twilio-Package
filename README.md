@@ -42,59 +42,6 @@ Make phone calls
 		"url": "http://demo.twilio.com/docs/voice.xml"
 }
 ```
-#### Response example
-```json
-{
-	"callback": "success",
-	"contextWrites": {
-		"to": {
-			"sid": "CA661c423d7e74fe440e5a3e4a369d6c09",
-			"dateCreated": {
-				"date": "2016-09-15 20:47:40.000000",
-				"timezone_type": 1,
-				"timezone": "+00:00"
-			},
-			"dateUpdated": {
-				"date": "2016-09-15 20:47:40.000000",
-				"timezone_type": 1,
-				"timezone": "+00:00"
-			},
-			"parentCallSid": null,
-			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
-			"to": "+15005880006",
-			"toFormatted": "+15005880006",
-			"from": "+15005550006",
-			"forwardedFrom": null,
-			"phoneNumberSid": null,
-			"status": "queued",
-			"startTime": {
-				"date": "2016-09-15 20:47:40.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"endTime": {
-				"date": "2016-09-15 20:47:40.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"duration": null,
-			"price": null,
-			"direction": null,
-			"answeredBy": null,
-			"apiVersion": "2010-04-01",
-			"callerName": null,
-			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09.json",
-			"annotation": null,
-			"groupSid": null,
-			"priceUnit": "USD",
-			"subresourceUris": {
-				"notifications": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09\/Notifications.json",
-				"recordings": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Calls\/CA661c423d7e74fe440e5a3e4a369d6c09\/Recordings.json"
-			}
-		}
-	}
-}
-```
 
 ## /api/twilio/sendSms
 Send text message
@@ -120,49 +67,6 @@ Send text message
 		"from": "+15005550006",
 		"to": "+150055444006",
 		"body": "text"
-}
-```
-#### Response example
-```json
-{
-	"callback": "success",
-	"contextWrites": {
-		"to": {
-			"sid": "SM9d72da46545d448cb448d7e2ab009136",
-			"body": "Sent from your Twilio trial account - http:\/\/demo.twilio.com\/docs\/voice.xml",
-			"dateCreated": {
-				"date": "2016-09-15 20:46:23.000000",
-				"timezone_type": 1,
-				"timezone": "+00:00"
-			},
-			"dateUpdated": {
-				"date": "2016-09-15 20:46:23.000000",
-				"timezone_type": 1,
-				"timezone": "+00:00"
-			},
-			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
-			"to": "+15008850006",
-			"from": "+15005550006",
-			"status": "queued",
-			"price": null,
-			"direction": "outbound-api",
-			"apiVersion": "2010-04-01",
-			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM9d72da46545d448cb448d7e2ab009136.json",
-			"subresourceUris": {
-				"media": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/SM9d72da46545d448cb448d7e2ab009136\/Media.json"
-			},
-			"priceUnit": "USD",
-			"dateSent": {
-				"date": "2016-09-15 20:46:23.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"errorCode": null,
-			"errorMessage": null,
-			"numMedia": "0",
-			"numSegments": "1"
-		}
-	}
 }
 ```
 
@@ -192,48 +96,7 @@ Send media message
 		"mediaUrl": "http://demo.twilio.com/docs/voice.xml"
 }
 ```
-#### Response example
-```json
-{
-	"callback": "success",
-	"contextWrites": {
-		"to": {
-			"sid": "MM2e5f462d1a034a72809294fac6493cf1",
-			"dateCreated": {
-				"date": "2016-09-15 20:43:00.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"dateUpdated": {
-				"date": "2016-09-15 20:43:00.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"accountSid": "AC5f37acb24007a320eefb5ffaeb498a78",
-			"to": "+15005650006",
-			"from": "+15005550006",
-			"status": "queued",
-			"price": null,
-			"direction": "outbound-api",
-			"apiVersion": "2010-04-01",
-			"uri": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MM2e5f462d1a034a72809294fac6493cf1.json",
-			"subresourceUris": {
-				"media": "\/2010-04-01\/Accounts\/AC5f37acb24007a320eefb5ffaeb498a78\/Messages\/MM2e5f462d1a034a72809294fac6493cf1\/Media.json"
-			},
-			"priceUnit": "USD",
-			"dateSent": {
-				"date": "2016-09-15 20:43:00.000000",
-				"timezone_type": 3,
-				"timezone": "UTC"
-			},
-			"errorCode": null,
-			"errorMessage": null,
-			"numMedia": "0",
-			"numSegments": "1"
-		}
-	}
-}
-```
+
 ## Errors
 | Error            | Description     |
 | -------------    |-------------     |
