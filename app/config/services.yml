@@ -55,8 +55,8 @@ parameters:
             -
               name: applicationSid
               type: String
-              info: "The 34 character sid of the application Twilio should use to handle this phone call. If this parameter is present, Twilio will ignore all of the voice URLs passed and use the URLs set on the application."
-              required: true
+              info: "Required if url not provided. The 34 character sid of the application Twilio should use to handle this phone call. If this parameter is present, Twilio will ignore all of the voice URLs passed and use the URLs set on the application."
+              required: false
             -
               name: method
               type: String
@@ -146,8 +146,8 @@ parameters:
             -
               name: messagingServiceSid
               type: String
-              info: "The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery."
-              required: true
+              info: "Required if from not provided. The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery."
+              required: false
             -
               name: to
               type: String
@@ -207,8 +207,8 @@ parameters:
             -
               name: messagingServiceSid
               type: String
-              info: "The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery."
-              required: true
+              info: "Required if from not provided. The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery."
+              required: false
             -
               name: to
               type: String
