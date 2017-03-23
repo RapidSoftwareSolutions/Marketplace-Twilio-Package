@@ -52,7 +52,7 @@ abstract class TwilioAbstract
     public function setResponse($responseMessage)
     {
         if ($responseMessage['status'] == 'error') {
-            $this->response = ['callback' => 'error', 'contextWrites' => ['to' => $responseMessage['errno']]];
+            $this->response = ['callback' => 'error', 'contextWrites' => ['to' => ['error_msg' => $responseMessage['errno']]]];
         } else {
             $this->response = ['callback' => 'success', 'contextWrites' => ['to' => $responseMessage[0]['callbackParameters']]];
         }
