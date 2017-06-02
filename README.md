@@ -31,7 +31,7 @@ Make phone calls
 | `sendDigits`         |string  | Optional: A string of keys to dial after connecting to the number, maximum of 32 digits. |
 | `timeout` |number  | Optional: The integer number of seconds that Twilio should allow the phone to ring before assuming there is no answer. |
 | `record` |boolean  | Optional: Set this parameter to 'true' to record the entirety of a phone call. |
-| `recordingChannels`         |string  |  Optional: Mono or dual. Set this parameter to specify the number of channels in the final recording. Defaults to 'mono'. |
+| `recordingChannels`         |Select  |  Optional: Mono or dual. Set this parameter to specify the number of channels in the final recording. Defaults to 'mono'. |
 | `recordingStatusCallback`         |string  | Optional: The recordingStatusCallback attribute takes an absolute URL as an argument. |
 | `recordingStatusCallbackMethod` |string  | Optional: The HTTP method Twilio should use when requesting the above URL. Defaults to POST |
 

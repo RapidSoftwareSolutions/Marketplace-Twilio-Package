@@ -99,12 +99,17 @@ parameters:
               required: false
             -
               name: record
-              type: String
+              type: Boolean
               info: "Set this parameter to 'true' to record the entirety of a phone call."
               required: false
             -
               name: recordingChannels
-              type: String
+              type: Select
+              options:
+                -
+                  mono
+                -
+                  dual
               info: "Mono or dual. Set this parameter to specify the number of channels in the final recording. Defaults to 'mono'."
               required: false
             -
