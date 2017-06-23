@@ -10,9 +10,9 @@ parameters:
           - call
           - marketing
           - message
-          - messaging 
+          - messaging
           - mms
-          - phone 
+          - phone
           - sms
           - text
           - voice
@@ -22,6 +22,25 @@ parameters:
           credentials:
             - accountSid
             - accountToken
+        events:
+        -
+          name: webhookEvent
+          description: Twilio sends data to your application.
+          payload:
+            body: modified message text
+            from: modified from value
+            attributes: '{"key" : "value"}'
+          steps:
+          -
+            Navigate to your twilio app page
+          -
+            Set callback to __WEBHOOK_URL__
+          args:
+          -
+            name: token
+            type: string
+            info: Token sent on each message
+            required: false
         blocks:
         -
           name: makeCall
@@ -251,7 +270,7 @@ parameters:
             -
               name: success
               info: "Success"
-              
+
 services:
     app_bundle.package_abstract:
         class: TwilioBundle\Utils\TwilioAbstaract
