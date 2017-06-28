@@ -36,7 +36,7 @@ parameters:
           -
             Create or select a phone number you want to use
           -
-            Configure the events to use webhooks with the following URL: __WEBHOOK_URL__
+            Configure the events to use webhooks with the following URL __WEBHOOK_URL__
           args:
           -
             name: token
